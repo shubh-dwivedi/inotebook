@@ -1,4 +1,3 @@
-// import React from 'react'
 import { useState } from "react";
 import NoteContext from "./noteContext";
 
@@ -8,7 +7,7 @@ const NoteState = (props) => {
   const [notes, setNotes] = useState(notesInitial);
 
   // User needs to be logged in to perform all the following operations
-  // get all notes of user
+  // get all notes of a User
   const getAllNotes = async ()=> {
     const response = await fetch(`${host}/api/notes/fetchallnotes`, {
       method: 'GET', // *GET, POST, PUT, DELETE, etc.
@@ -18,7 +17,6 @@ const NoteState = (props) => {
       }
     });
     const json = await response.json()
-    // console.log(json);
     setNotes(json);
   }
 

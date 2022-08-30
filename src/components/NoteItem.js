@@ -6,10 +6,9 @@ const NoteItem = (props) => {
   const { deleteNote } = context;
   const { note, updateNote } = props;
   return (
-    <div>
+    <>
       <div className="my-3">
-        
-        <div className="card">
+        <div className="card h-100">
           <div className="card-body">
             <div className="d-flex align-items-center">
             <h5 className="card-title">{note.title}</h5>
@@ -21,7 +20,7 @@ const NoteItem = (props) => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

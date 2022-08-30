@@ -43,6 +43,7 @@ const Notes = (props) => {
     <div className="container">
       <Addnote showAlert={props.showAlert} />
 
+      <div className="modal-Container">
       <button type="button" className="btn btn-primary d-none" ref={ref} data-bs-toggle="modal" data-bs-target="#exampleModal">
         trigger button for update note modal(editor)
       </button>
@@ -76,6 +77,7 @@ const Notes = (props) => {
             </div>
           </div>
         </div>
+      </div>
       </div>
 
       <div className="container mt-4">
