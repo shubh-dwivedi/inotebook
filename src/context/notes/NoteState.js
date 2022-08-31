@@ -2,7 +2,8 @@ import { useState } from "react";
 import NoteContext from "./noteContext";
 
 const NoteState = (props) => {
-  let host = "http://localhost:5000"
+  // let host = "http://localhost:5000"
+  let host = 'https://inotebook-node-backend.herokuapp.com'
   const notesInitial = []
   const [notes, setNotes] = useState(notesInitial);
 
@@ -10,13 +11,14 @@ const NoteState = (props) => {
   // get all notes of a User
   const getAllNotes = async ()=> {
     const response = await fetch(`${host}/api/notes/fetchallnotes`, {
-      method: 'GET', // *GET, POST, PUT, DELETE, etc.
+      method: 'GET',
+      // mode : 'no-cors',
       headers: {
           'Content-Type': 'application/json',
-          'auth-token': localStorage.getItem('token')
+          'auth-token': localStorage.getItem('token'),
       }
     });
-    const json = await response.json()
+    const json = await response.json();
     setNotes(json);
   }
 

@@ -40,7 +40,7 @@ const Notes = (props) => {
   }
   
   return (
-    <div className="container">
+    <div className="container-home">
       <Addnote showAlert={props.showAlert} />
 
       <div className="modal-Container">
@@ -80,7 +80,7 @@ const Notes = (props) => {
       </div>
       </div>
 
-      <div className="container mt-4">
+      <div className="container mt-4 yournotes-container">
       <h2>Your Notes</h2>
       <div className="row my-3">
         {notes.length === 0 && <div>No notes to display!</div>}

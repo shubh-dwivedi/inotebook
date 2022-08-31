@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
-import {useNavigate} from 'react-router-dom'
+import {useNavigate, Link} from 'react-router-dom'
 
 const Signup = (props) => {
     const [credentials, setCredentials] = useState({name:"",email:"",password:"",cpassword:""});
     let navigate = useNavigate();
+
+    // let host = "http://localhost:5000"
+    let host = "https://inotebook-node-backend.herokuapp.com"
 
     const onChange = (e)=> {
         setCredentials({...credentials, [e.target.name]: e.target.value})
@@ -12,7 +15,7 @@ const Signup = (props) => {
     const handleSubmit = async (e)=> {
         e.preventDefault();
         const {name, email, password} = credentials;
-        const response = await fetch(`http://localhost:5000/api/auth/createuser`, {
+        const response = await fetch(`${host}/api/auth/createuser`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -20,7 +23,7 @@ const Signup = (props) => {
             body: JSON.stringify({name, email, password})
           });
           const json = await response.json()
-          console.log(json);
+          console.log(json.success);
           if(json.success) {
             // save the auth token redirect
             setCredentials({name:"",email:"",password:"",cpassword:""});
@@ -32,10 +35,10 @@ const Signup = (props) => {
           }
     }
   return (
-    <div className='mt-4'>
-        <h2>Sign Up</h2>
+    <div className='mt-4 signup-container'>
+        <h1>Sign Up</h1>
         <form onSubmit={handleSubmit}>
-        <div className="mb-3">
+        <div className="my-3">
             <label htmlFor="name" className="form-label">Name</label>
             <input type="text" className="form-control" name='name' id="name" aria-describedby="emailHelp" onChange={onChange} minLength={3} required/>
         </div>
@@ -54,6 +57,10 @@ const Signup = (props) => {
         </div>
         <button type="submit" className="btn btn-primary">Submit</button>
         </form>
+
+        <div className='my-3'>
+        Already have an account? <Link to="/login" style={{textDecoration: 'none'}}>Login</Link>
+        </div>
     </div>
   )
 }
