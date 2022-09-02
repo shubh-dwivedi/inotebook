@@ -5,7 +5,6 @@ const Login = (props) => {
     const [credentials, setCredentials] = useState({email:"",password:""});
     let navigate = useNavigate();
 
-    // let host = "http://localhost:5000"
     let host = "https://inotebook-node-backend.herokuapp.com"
 
     const onChange = (e)=> {

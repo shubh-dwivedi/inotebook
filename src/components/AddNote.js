@@ -9,7 +9,6 @@ const Addnote = (props) => {
         e.preventDefault();
         addNote(note.title, note.description, note.tag);
         setNote({title:"",description:"",tag:""});
-        // document.getElementById("tag").value = "";
         props.showAlert("Note Added Successfully","success");
     }
     const onChange = (e)=> {
