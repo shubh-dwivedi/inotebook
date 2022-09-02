@@ -26,6 +26,8 @@ const Login = (props) => {
             // save the auth token redirect
             setCredentials({email:"",password:""});
             localStorage.setItem('token', json.authToken);
+            let accountObj = { name: json.name, email: json.email };
+            localStorage.setItem('accountInfo', JSON.stringify(accountObj))
             navigate("/");
             props.showAlert("Logged in Successfully", "success");
           } else props.showAlert("Invalid email or password", "danger");

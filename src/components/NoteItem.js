@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import noteContext from "../context/notes/noteContext";
+import noteContext from "../context/noteContext";
 import tags from '../tags.png'
 
 const NoteItem = (props) => {
@@ -9,7 +9,7 @@ const NoteItem = (props) => {
 
   return (
     <>
-      <div className="my-3 noteitem-container">
+      <div className="my-3 noteitem-container flex-fill">
         <div className="card h-100">
           <div className="card-body">
             <div className="d-flex align-items-center">

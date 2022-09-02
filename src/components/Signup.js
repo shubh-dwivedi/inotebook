@@ -28,6 +28,8 @@ const Signup = (props) => {
             // save the auth token redirect
             setCredentials({name:"",email:"",password:"",cpassword:""});
             localStorage.setItem('token', json.authToken);
+            let accountObj = { name: json.name, email: json.email };
+            localStorage.setItem('accountInfo', JSON.stringify(accountObj))
             navigate("/");
             props.showAlert("Account created successfully", "success")
           } else {

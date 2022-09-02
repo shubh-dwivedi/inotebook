@@ -5,6 +5,7 @@ const Navbar = () => {
   let location = useLocation();
   const onLogoutClick = ()=> {
     localStorage.removeItem('token');
+    localStorage.removeItem('accountInfo');
   }
   return (
     <div>
@@ -26,7 +27,19 @@ const Navbar = () => {
             {!localStorage.getItem('token') ?<form className="d-flex">
                 <Link className="btn btn-primary mx-1" to="/login" role="button">Login</Link>
                 <Link className="btn btn-primary mx-1" to="/signup" role="button">Signup</Link>
-            </form>: <Link className="btn btn-primary mx-1" onClick={onLogoutClick} to="/login" role="button">Logout</Link>}
+            </form>: 
+            // <Link className="btn btn-primary mx-1" onClick={onLogoutClick} to="/login" role="button">Logout</Link>
+            <div className="dropdown me-4">
+                <a className="btn btn-primary dropdown-toggle" href="/" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                    My Account
+                </a>
+                <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <li><Link className="dropdown-item" to="/account">Account Info</Link></li>
+                    <li><hr className="dropdown-divider" /></li>
+                    <li><Link className="btn btn-primary dropdown-item link-primary" onClick={onLogoutClick} to="/login" role="button">Logout</Link></li>
+                </ul>
+            </div>
+            }
         </div>
         </div>
     </nav>

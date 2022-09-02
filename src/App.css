@@ -1,6 +1,6 @@
-.App {
-  /* text-align: center; */
-}
+/* .App {
+  text-align: center;
+} */
 
 .App-logo {
   height: 40vmin;
@@ -37,6 +37,15 @@
   }
 }
 
+.col-md-3 {
+  display: flex;
+  min-height: 100%;
+}
+
+.card-title {
+  max-width: 65%;
+  font-size: 1.25rem;
+}
 
 @media only screen and (min-width: 768px) {
   .login-container {
@@ -63,7 +72,7 @@
   }
 
   .yournotes-container {
-    display: inline-block;
+    /* display: inline-block; */
     padding-left: 3rem;
   }
 
@@ -71,8 +80,15 @@
     display: flex;
   }
   
-  .noteitem-container {
-    min-width: max-content;
-  }
 }
 
+.noteitem-container {
+  max-width:inherit;
+}
+
+@media only screen and (max-width: 768px) {
+  .noteitem-container {
+    min-width: 100%;
+  }
+
+}
