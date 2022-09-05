@@ -25,12 +25,11 @@ const Notes = (props) => {
   
   const updateNote = (currentNote)=> {
     ref.current.click();
-    setNote({_id:currentNote._id, etitle: currentNote.title, edescription: currentNote.description, etag: currentNote.tag});
+    setNote({_id:currentNote._id, etitle: currentNote.title, edescription: `${currentNote.description}`, etag: currentNote.tag});
   }
 
   const handleUpdateClick = ()=> {
-    // e.preventDefault();
-    editNote(note._id ,note.etitle, note.edescription, note.etag);
+    editNote(note._id ,note.etitle, `${note.edescription}`, note.etag);
     refClose.current.click();
     props.showAlert("Note Updated Successfully", "success");
   }
@@ -59,15 +58,15 @@ const Notes = (props) => {
             <form className='my-3'>
             <div className="mb-3">
                 <label htmlFor="etitle" className="form-label">Title</label>
-                <input type="text" className="form-control w-50" id="etitle" name="etitle" aria-describedby="emailHelp" onChange={onChange} value={note.etitle} placeholder="Enter min 3 characters"/>
+                <input type="text" className="form-control" id="etitle" name="etitle" aria-describedby="emailHelp" onChange={onChange} value={note.etitle} placeholder="Enter min 3 characters"/>
             </div>
             <div className="mb-3">
                 <label htmlFor="edescription" className="form-label">Description</label>
-                <input type="text" className="form-control w-50" id="edescription"  name="edescription" onChange={onChange} value={note.edescription} placeholder="Enter min 5 characters"/>
+                <textarea type="text" className="form-control " id="edescription"  name="edescription" onChange={onChange} value={note.edescription} placeholder="Enter min 5 characters" rows={5}/>
             </div>
             <div className="mb-3">
-                <label htmlFor="etag" className="form-label">Tag</label>
-                <input type="text" className="form-control w-50" id="etag"  name="etag" onChange={onChange} value={note.etag}/>
+                <label htmlFor="etag" className="form-label">Tags</label>
+                <input type="text" className="form-control" id="etag"  name="etag" onChange={onChange} value={note.etag}/>
             </div>
             </form>
             </div>

@@ -6,7 +6,7 @@ function About() {
         <h1>About iNotebook</h1>
         <div>
           <hr />
-          <h5>This is a cloud based note making application that enables you to create, edit or delete your notes form anywhere. You need to create an account or login to use this web app. This is only a demo app developed as a personal project for learning purpose.</h5>
+          <p><strong><i>This is a cloud based note making application and enables user to create, edit or delete your notes form anywhere. User needs to Create an account(signup) or Login to start using this application. This is a demo web application developed as a personal project for learning purpose only.</i></strong></p>
 
           <div className="accordion my-3" id="accordionExample">
           <div className="accordion-item" >
