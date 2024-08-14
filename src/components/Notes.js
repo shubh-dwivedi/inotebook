@@ -82,8 +82,8 @@ const Notes = (props) => {
       <div className="container mt-4 yournotes-container">
       <h2>Your Notes</h2>
       <div className="row my-3">
-        {notes.length === 0 && <div>No notes to display!</div>}
-        {notes.map((note) => {
+        {(!notes || notes.length === 0) && <div>No notes to display!</div>}
+        {notes && notes.map((note) => {
           return (
             <div className="col-md-3" key={note._id} >
               <NoteItem note={note} updateNote={updateNote} showAlert={props.showAlert} />
